@@ -14,12 +14,18 @@ const server = express();
 const db = knex({
     client: 'pg',
     connection: {
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
+    }
+});
+
+/* La anterior configuracion del db
+connection: {
         host: '127.0.0.1',
         user: 'postgres',
         password: '0',
         database: 'braindb'
-    }
-})
+    } */
 
 server.use(bodyParser.json());
 
